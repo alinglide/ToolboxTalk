@@ -15,7 +15,7 @@
 </head>
 <body>
 
-<h1 id="title">Toolbox Talk</h1>
+<h1 id="title">title</h1>
 
 <!-- Embed the PDF -->
 <iframe id="pdf" src=""></iframe>
