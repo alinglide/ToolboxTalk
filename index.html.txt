@@ -2,62 +2,26 @@
 <html lang="en">
 <head>
 <meta charset="UTF-8">
-<title>Toolbox Talk Viewer & Sign-off</title>
+<title>Toolbox Talk Viewer</title>
 <style>
   body { font-family: Arial, sans-serif; margin: 20px; color: #333; }
   h1 { color: #003366; margin-bottom: 20px; }
   iframe { width: 100%; height: 600px; border: 1px solid #ccc; margin-bottom: 20px; }
-  table { width: 100%; border-collapse: collapse; margin-top: 20px; }
-  th, td { border: 1px solid #ccc; padding: 8px; text-align: left; vertical-align: middle; }
-  th { background-color: #e6f0fa; }
-  .signature { max-height: 50px; }
 </style>
 </head>
 <body>
 
-<h1 id="title">title</h1>
+<h1 id="title">Toolbox Talk</h1>
 
-<!-- Embed the PDF -->
 <iframe id="pdf" src=""></iframe>
 
-<h2>Sign-off</h2>
-<table>
-  <tr><th>Name</th><th>Role</th><th>Signature</th><th>Date & Time</th></tr>
-  <tr>
-    <td id="name1"></td>
-    <td id="role1"></td>
-    <td><img id="signature1" class="signature" src="" alt="Signature"></td>
-    <td id="date1"></td>
-  </tr>
-  <tr>
-    <td id="name2"></td>
-    <td id="role2"></td>
-    <td><img id="signature2" class="signature" src="" alt="Signature"></td>
-    <td id="date2"></td>
-  </tr>
-  <tr>
-    <td id="name3"></td>
-    <td id="role3"></td>
-    <td><img id="signature3" class="signature" src="" alt="Signature"></td>
-    <td id="date3"></td>
-  </tr>
-</table>
-
 <script>
-const params = new URLSearchParams(window.location.search);
-// Set title and PDF URL
-document.getElementById('title').textContent = params.get('title') || 'Toolbox Talk';
-const pdfUrl = params.get('pdf');
-if(pdfUrl) document.getElementById('pdf').src = pdfUrl;
+  const params = new URLSearchParams(window.location.search);
+  const title = params.get('title');
+  if (title) document.getElementById('title').textContent = title;
 
-// Fill signer info
-['1','2','3'].forEach(num => {
-  document.getElementById('name'+num).textContent = params.get('name'+num) || '';
-  document.getElementById('role'+num).textContent = params.get('role'+num) || '';
-  document.getElementById('date'+num).textContent = params.get('date'+num) || '';
-  const sig = params.get('signature'+num);
-  if(sig) document.getElementById('signature'+num).src = sig;
-});
+  const pdf = params.get('pdf');
+  if (pdf) document.getElementById('pdf').src = pdf;
 </script>
 
 </body>
